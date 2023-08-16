@@ -20,6 +20,7 @@ public class RegisterUserService : IRegisterUserService
 
     public async Task<ResultDto> Execute(RequestRegisterUserDto request)
     {
+        /// Add User
         User user = new User()
         {
             FullName = request.FullName,
