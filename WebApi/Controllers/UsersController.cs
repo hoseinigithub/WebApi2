@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         {
             var result = await _registerUser.Execute(request);
 
-            return StatusCode(200, result);
+            return StatusCode(result.IsSucces ? 200 : 404, result);
         }
     }
 }
