@@ -7,7 +7,7 @@ public class ResultDto
     public int StatusCode { get; set; }
 }
 
-public class Result<T> : ResultDto
+public class ResultDto<T> : ResultDto
 {
     public T Data { get; set; }
 }

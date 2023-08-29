@@ -1,5 +1,7 @@
 using Application.Interfaces.Contexts;
+using Application.Services.Users.Commands.DeleteUser;
 using Application.Services.Users.Commands.RegisterUser;
+using Application.Services.Users.Queries.GetUsers;
 using Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,8 @@ builder.Services.AddDbContext<DatabaseContext>(option => option.UseSqlite(builde
 
 builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
 builder.Services.AddScoped<IRegisterUserService, RegisterUserService>();
+builder.Services.AddScoped<IGetUsersService, GetUsersService>();
+builder.Services.AddScoped<IDeleteUserService, DeleteUserService>();
 
 var app = builder.Build();
 

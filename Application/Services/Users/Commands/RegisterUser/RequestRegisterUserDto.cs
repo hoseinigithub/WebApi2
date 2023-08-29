@@ -1,14 +1,14 @@
-﻿namespace Domain.Entities.Users;
+﻿namespace Application.Services.Users.Commands.RegisterUser;
 
-public class User
+public class RequestRegisterUserDto
 {
-    public int Id { get; set; }
     public string FullName { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
+    public string RePassword { get; set; }
     public string PostalCode { get; set; }
     public string BuildingNumber { get; set; }
     public string Address { get; set; }
     public string PhoneNumber { get; set; }
-    public ICollection<UserInRole> UserInRoles { get; set; }
+    public List<int> RoleId { get; set; }
 }
