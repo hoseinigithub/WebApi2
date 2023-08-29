@@ -1,4 +1,6 @@
-﻿namespace Application.Services.Users.Commands.RegisterUser;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Application.Services.Users.Commands.RegisterUser;
 
 public class RequestRegisterUserDto
 {

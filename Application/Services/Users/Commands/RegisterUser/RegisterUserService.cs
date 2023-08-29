@@ -1,6 +1,8 @@
 ﻿using Application.Interfaces.Contexts;
 using Common;
+using CryptoHelper;
 using Domain.Entities.Users;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace Application.Services.Users.Commands.RegisterUser;
 
@@ -42,7 +44,7 @@ public class RegisterUserService : IRegisterUserService
         foreach (var roleId in request.RoleId)
         {
             if (_context.Roles.Any(u => u.Id == roleId))
-            {
+        {
                 userInRoles.Add(new UserInRole { UserId = user.Id, RoleId = roleId });
             }
             else
@@ -54,6 +56,7 @@ public class RegisterUserService : IRegisterUserService
                     Message = "The selected role was not found"
                 };
             }
+            userInRoleList.Add(new UserInRole { UserId = user.Id, RoleId = role });
         }
         user.UserInRoles = userInRoles;
         await _context.Users.AddAsync(user);
